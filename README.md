@@ -80,4 +80,4 @@ See [baseline verification](docs/verification/issue-3.md) and [the first Claude 
 
 ## Source
 
-Upstream commit `e71105ce091d71dff4d89cf5d8d37ea1df460961` was imported as one snapshot without upstream history. Buddy is released under the [MIT License](LICENSE), which keeps upstream's notice. No code or assets come from the closed-source reference app. See [ADR 0004](docs/adr/0004-study-the-reference-app-never-copy-it.md).
+Upstream commit `e71105ce091d71dff4d89cf5d8d37ea1df460961` was imported as one snapshot without upstream history. Buddy is released under the [MIT License](LICENSE), which keeps upstream's notice. No code or assets come from the closed-source reference app. See [ADR 0004](docs/adr/0004-never-copy-the-reference-app.md).
