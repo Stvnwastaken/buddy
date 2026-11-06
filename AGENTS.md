@@ -1,4 +1,4 @@
-# heyclickyclone
+# Buddy
 
 An open-source macOS buddy in the spirit of HeyClicky that runs on the owner's own Claude or ChatGPT subscription, forked from farzaa/clicky. Read `GLOSSARY.md` and `docs/adr/` before working here. Never copy code, prompts or assets from the HeyClicky app (ADR 0004).
 
