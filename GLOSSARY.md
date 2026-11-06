@@ -1,4 +1,4 @@
-# heyclickyclone
+# Buddy
 
 A personal macOS buddy that lives next to the cursor. When summoned it sees the screen, talks back, points and draws on screen, and can operate apps for its owner.
 
