@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>Buddy's agent runs use AppleScript to read from your apps when you ask them to.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Buddy uses the microphone only while you hold push-to-talk with a connected provider.</string>
+	<key>NSScreenCaptureUsageDescription</key>
+	<string>Buddy captures your displays only during a turn with a connected provider.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Buddy transcribes your voice on this Mac during push-to-talk with a connected provider.</string>
+</dict>
+</plist>

@@ -1,0 +1,19 @@
+NOTCH_OWNED_NATIVE_PRESS notch.history bounds=(38.0, 453.0, 132.5, 32.0)
+NOTCH_OWNED_NATIVE_PRESS notch.back bounds=(38.0, 453.0, 138.5, 32.0)
+NOTCH_OWNED_NATIVE_PRESS notch.history bounds=(38.0, 453.0, 132.5, 32.0)
+NOTCH_OWNED_NATIVE_PRESS notch.open.2 bounds=(38.0, 239.0, 378.0, 60.0)
+NOTCH_THREAD_END stage=initial rawGap=14.0 semanticGap=0.0 viewport=(634.0, 701.0, 443.0, 295.0) latestReplyFrame=Optional((651.0, 713.0, 408.0, 34.0)) latestFullyVisible=true atLatest=true
+NOTCH_THREAD_END stage=older-negative-control rawGap=2900.0 semanticGap=2886.0 viewport=(634.0, 701.0, 443.0, 295.0) latestReplyFrame=Optional((651.0, -2173.0, 408.0, 34.0)) latestFullyVisible=false atLatest=false
+NOTCH_OWNED_NATIVE_PRESS notch.history bounds=(38.0, 453.0, 132.5, 32.0)
+NOTCH_OWNED_NATIVE_PRESS notch.open.2 bounds=(38.0, 309.0, 378.0, 60.0)
+NOTCH_THREAD_END stage=same-thread-reopened rawGap=14.0 semanticGap=0.0 viewport=(634.0, 701.0, 443.0, 295.0) latestReplyFrame=Optional((651.0, 713.0, 408.0, 34.0)) latestFullyVisible=true atLatest=true
+NOTCH_OWNED_NATIVE_PRESS notch.history bounds=(38.0, 453.0, 132.5, 32.0)
+NOTCH_OWNED_NATIVE_PRESS notch.open.0 bounds=(38.0, 169.0, 378.0, 60.0)
+NOTCH_OWNED_NATIVE_PRESS notch.history bounds=(38.0, 453.0, 132.5, 32.0)
+NOTCH_OWNED_NATIVE_PRESS notch.delete.1 bounds=(416.0, 181.0, 36.0, 36.0)
+NOTCH_OWNED_NATIVE_PRESS notch.new bounds=(315.5, 453.0, 146.5, 32.0)
+NOTCH_OWNED_NATIVE_PRESS notch.history bounds=(38.0, 453.0, 132.5, 32.0)
+NOTCH_HISTORY_FIXTURE controls=list,back,open,delete,new,clear scroll=first,latest context=liveClaude capture=injected ownerData=false
+􁁛 Test ownedHistoryControlsRenderScrollContinueDeleteAndClear() passed after 7.789 seconds.
+􁁛 Test run with 1 test in 1 suite passed after 7.789 seconds.
+** TEST SUCCEEDED **

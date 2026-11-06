@@ -1,0 +1,501 @@
+// !$*UTF8*$!
+{
+	classes = {
+	};
+	objectVersion = 77;
+	archiveVersion = 1;
+	objects = {
+		28F22CE32F56440300A0FC59 = {
+			isa = XCConfigurationList;
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+			buildConfigurations = (
+				28F22CE42F56440300A0FC59,
+				28F22CE52F56440300A0FC59,
+			);
+		};
+		28F22CBE2F56440300A0FC59 = {
+			dependencies = (
+			);
+			buildConfigurationList = 28F22CE02F56440300A0FC59;
+			productReference = 28F22CBF2F56440300A0FC59;
+			productType = "com.apple.product-type.application";
+			packageProductDependencies = (
+				B00000000000000000000002,
+				B00000000000000000000006,
+			);
+			productName = Buddy;
+			isa = PBXNativeTarget;
+			fileSystemSynchronizedGroups = (
+				28F22CC12F56440300A0FC59,
+			);
+			buildPhases = (
+				28F22CBB2F56440300A0FC59,
+				28F22CBC2F56440300A0FC59,
+				28F22CBD2F56440300A0FC59,
+			);
+			name = Buddy;
+			buildRules = (
+			);
+		};
+		28F22CBF2F56440300A0FC59 = {
+			path = Buddy.app;
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			explicitFileType = wrapper.application;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		28F22CCE2F56440300A0FC59 = {
+			isa = PBXTargetDependency;
+			target = 28F22CBE2F56440300A0FC59;
+			targetProxy = 28F22CCD2F56440300A0FC59;
+		};
+		28F22CE42F56440300A0FC59 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 33LHH26W8G;
+				MARKETING_VERSION = 0.1.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Buddy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Buddy";
+				GENERATE_INFOPLIST_FILE = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = BuddyTests;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.steven.buddy.tests;
+				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+			};
+			name = Debug;
+		};
+		28F22CB62F56440300A0FC59 = {
+			isa = PBXGroup;
+			sourceTree = "<group>";
+			children = (
+				28F22CC12F56440300A0FC59,
+				28F22CCF2F56440300A0FC59,
+				28F22CC02F56440300A0FC59,
+			);
+		};
+		28F22CC02F56440300A0FC59 = {
+			isa = PBXGroup;
+			name = Products;
+			children = (
+				28F22CBF2F56440300A0FC59,
+				28F22CCC2F56440300A0FC59,
+			);
+			sourceTree = "<group>";
+		};
+		28F22CCF2F56440300A0FC59 = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BuddyTests;
+			sourceTree = "<group>";
+		};
+		28F22CDE2F56440300A0FC59 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 33LHH26W8G;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COPY_PHASE_STRIP = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_COMMA = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				CLANG_WARN_INT_CONVERSION = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				SDKROOT = macosx;
+				CLANG_WARN_EMPTY_BODY = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				CLANG_ENABLE_MODULES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ENABLE_TESTABILITY = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+			};
+			name = Debug;
+		};
+		28F22CE52F56440300A0FC59 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 33LHH26W8G;
+				MARKETING_VERSION = 0.1.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Buddy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Buddy";
+				GENERATE_INFOPLIST_FILE = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = BuddyTests;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.steven.buddy.tests;
+				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+			};
+			name = Release;
+		};
+		28F22CBA2F56440300A0FC59 = {
+			isa = XCConfigurationList;
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+			buildConfigurations = (
+				28F22CDE2F56440300A0FC59,
+				28F22CDF2F56440300A0FC59,
+			);
+		};
+		28F22CB72F56440300A0FC59 = {
+			buildConfigurationList = 28F22CBA2F56440300A0FC59;
+			packageReferences = (
+				B00000000000000000000001,
+				B00000000000000000000005,
+			);
+			targets = (
+				28F22CBE2F56440300A0FC59,
+				28F22CCB2F56440300A0FC59,
+			);
+			minimizedProjectReferenceProxies = 1;
+			developmentRegion = en;
+			knownRegions = (
+				en,
+				Base,
+			);
+			isa = PBXProject;
+			productRefGroup = 28F22CC02F56440300A0FC59;
+			projectDirPath = "";
+			attributes = {
+				LastSwiftUpdateCheck = 2620;
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					28F22CBE2F56440300A0FC59 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					28F22CCB2F56440300A0FC59 = {
+						TestTargetID = 28F22CBE2F56440300A0FC59;
+						CreatedOnToolsVersion = 26.2;
+					};
+				};
+			};
+			hasScannedForEncodings = 0;
+			mainGroup = 28F22CB62F56440300A0FC59;
+			preferredProjectObjectVersion = 77;
+			projectRoot = "";
+		};
+		28F22CC12F56440300A0FC59 = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Buddy;
+			sourceTree = "<group>";
+			exceptions = (
+				B00000000000000000000004,
+			);
+		};
+		28F22CDF2F56440300A0FC59 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				SDKROOT = macosx;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				CLANG_WARN_COMMA = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				COPY_PHASE_STRIP = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				MTL_FAST_MATH = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				DEVELOPMENT_TEAM = 33LHH26W8G;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+			};
+			name = Release;
+		};
+		28F22CBB2F56440300A0FC59 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28F22CCA2F56440300A0FC59 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28F22CE02F56440300A0FC59 = {
+			isa = XCConfigurationList;
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+			buildConfigurations = (
+				28F22CE12F56440300A0FC59,
+				28F22CE22F56440300A0FC59,
+			);
+		};
+		28F22CCB2F56440300A0FC59 = {
+			dependencies = (
+				28F22CCE2F56440300A0FC59,
+			);
+			buildConfigurationList = 28F22CE32F56440300A0FC59;
+			productReference = 28F22CCC2F56440300A0FC59;
+			productType = "com.apple.product-type.bundle.unit-test";
+			packageProductDependencies = (
+			);
+			productName = BuddyTests;
+			isa = PBXNativeTarget;
+			fileSystemSynchronizedGroups = (
+				28F22CCF2F56440300A0FC59,
+			);
+			buildPhases = (
+				28F22CC82F56440300A0FC59,
+				28F22CC92F56440300A0FC59,
+				28F22CCA2F56440300A0FC59,
+			);
+			name = BuddyTests;
+			buildRules = (
+			);
+		};
+		28F22CE12F56440300A0FC59 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Buddy/Buddy.entitlements;
+				MARKETING_VERSION = 0.1.0;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 33LHH26W8G;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.steven.buddy;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				INFOPLIST_KEY_CFBundleDisplayName = Buddy;
+				INFOPLIST_KEY_NSScreenCaptureUsageDescription = "Buddy captures your displays only during a turn with a connected provider.";
+				INFOPLIST_KEY_CFBundleName = Buddy;
+				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				SWIFT_VERSION = 5.0;
+				PRODUCT_NAME = Buddy;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_APP_SANDBOX = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Buddy/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				CODE_SIGN_IDENTITY = "Apple Development";
+			};
+			name = Debug;
+		};
+		28F22CBC2F56440300A0FC59 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B00000000000000000000003,
+				B00000000000000000000007,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28F22CC82F56440300A0FC59 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28F22CCC2F56440300A0FC59 = {
+			path = BuddyTests.xctest;
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			explicitFileType = wrapper.cfbundle;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		28F22CBD2F56440300A0FC59 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28F22CC92F56440300A0FC59 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28F22CE22F56440300A0FC59 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Buddy/Buddy.entitlements;
+				MARKETING_VERSION = 0.1.0;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 33LHH26W8G;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.steven.buddy;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				INFOPLIST_KEY_CFBundleDisplayName = Buddy;
+				INFOPLIST_KEY_NSScreenCaptureUsageDescription = "Buddy captures your displays only during a turn with a connected provider.";
+				INFOPLIST_KEY_CFBundleName = Buddy;
+				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				SWIFT_VERSION = 5.0;
+				PRODUCT_NAME = Buddy;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_APP_SANDBOX = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Buddy/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				CODE_SIGN_IDENTITY = "Apple Development";
+			};
+			name = Release;
+		};
+		28F22CCD2F56440300A0FC59 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28F22CB72F56440300A0FC59;
+			remoteGlobalIDString = 28F22CBE2F56440300A0FC59;
+			remoteInfo = Buddy;
+			proxyType = 1;
+		};
+		B00000000000000000000001 = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = BuddyCore;
+		};
+		B00000000000000000000002 = {
+			isa = XCSwiftPackageProductDependency;
+			package = B00000000000000000000001;
+			productName = BuddyCore;
+		};
+		B00000000000000000000003 = {
+			isa = PBXBuildFile;
+			productRef = B00000000000000000000002;
+		};
+		B00000000000000000000005 = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = BuddyVoice;
+		};
+		B00000000000000000000006 = {
+			isa = XCSwiftPackageProductDependency;
+			package = B00000000000000000000005;
+			productName = BuddyVoice;
+		};
+		B00000000000000000000007 = {
+			isa = PBXBuildFile;
+			productRef = B00000000000000000000006;
+		};
+		B00000000000000000000004 = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+				AGENTS.md,
+			);
+			target = 28F22CBE2F56440300A0FC59;
+		};
+	};
+	rootObject = 28F22CB72F56440300A0FC59;
+}

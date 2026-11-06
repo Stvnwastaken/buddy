@@ -1,0 +1,115 @@
+import AppKit
+import BuddyCore
+import Foundation
+import SwiftUI
+import Testing
+@testable import Buddy
+
+@MainActor
+struct Issue30Probe {
+    @Test func simulatedClaudeLimitContinuesOnRealCodex() async throws {
+        let root = URL(fileURLWithPath: "/tmp/buddy-frontier-issue-30/live-\(UUID().uuidString)")
+        try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
+        let probe = Issue30LiveRun(root: root)
+        defer { probe.host.stopAll() }
+        try Self.render(AgentRunsView(choice: .auto, mode: .auto, chooseProvider: { _ in }, chooseMode: { _ in }).padding(12), width: 380, to: root.appending(path: "auto.png"))
+        probe.start()
+        let deadline = ContinuousClock.now + .seconds(180)
+        while probe.engine.state.runs.first?.isActive == true, ContinuousClock.now < deadline {
+            try await Task.sleep(for: .milliseconds(100))
+        }
+        let run = try #require(probe.engine.state.runs.first)
+        print("ISSUE30_PROBE root=\(root.path) status=\(run.status) launched=\(probe.launched) report=\(run.report ?? "")")
+        #expect(run.status == .done)
+        #expect(probe.launched == [.claudeCode, .codex])
+        #expect(probe.folders.count == 2)
+        #expect(probe.folders.first == probe.folders.last)
+        let folder = try #require(probe.folders.first)
+        let actions = try String(contentsOf: folder.appending(path: "output/actions.txt"), encoding: .utf8)
+        print("ISSUE30_PROBE actions=\(String(reflecting: actions))")
+        #expect(actions == "first\nsecond\n")
+        #expect(run.noteBody.contains("Switched to Codex"))
+        #expect(run.denials == [])
+        #expect(run.asks == [])
+        try Self.render(DockPanel { _ in }.card(for: run), width: 340, to: root.appending(path: "done.png"))
+    }
+
+    static func render(_ view: some View, width: CGFloat, to url: URL) throws {
+        let host = NSHostingView(rootView: view.environment(\.colorScheme, .dark).frame(width: width))
+        host.appearance = NSAppearance(named: .darkAqua)
+        host.setFrameSize(NSSize(width: width, height: host.fittingSize.height))
+        let window = NSWindow(contentRect: host.frame, styleMask: [.borderless], backing: .buffered, defer: false)
+        window.contentView = host
+        host.layoutSubtreeIfNeeded()
+        let bitmap = try #require(host.bitmapImageRepForCachingDisplay(in: host.bounds))
+        host.cacheDisplay(in: host.bounds, to: bitmap)
+        try #require(bitmap.representation(using: .png, properties: [:])).write(to: url)
+        window.contentView = nil
+    }
+}
+
+@MainActor
+private final class Issue30LiveRun {
+    var engine = BuddyEngine(providerConnected: true)
+    var launched: [ProviderCLI] = []
+    var folders: [URL] = []
+    let root: URL
+    lazy var host = AgentRunHost(runsFolder: root.appending(path: "Runs")) { [unowned self] cli, mode, folder, port, token in
+        launched.append(cli)
+        folders.append(folder)
+        if cli == .codex {
+            return try AgentRunHost.makeLaunch(
+                cli: cli, approvalMode: mode, folder: folder, port: port, token: token,
+                environment: ProcessInfo.processInfo.environment, codexHome: root.appending(path: "Codex home").path
+            )
+        }
+        return ProcessLaunch(
+            executable: "/usr/bin/python3", arguments: ["-c", Self.claude],
+            environment: ["BUDDY_TEST_PORT": String(port), "BUDDY_TEST_TOKEN": token], workingDirectory: folder.path
+        )
+    }
+    init(root: URL) { self.root = root }
+    func start() {
+        let request = "agent, write first and then second as two separate lines in output/actions.txt. Each line must occur exactly once. Keep completed actions, verify the existing file before continuing, and finish with a short report."
+        for event: BuddyEngine.Event in [.pushToTalkPressed, .pushToTalkReleased, .transcriptFinished(request), .screensCaptured([])] { send(event) }
+    }
+    func send(_ event: BuddyEngine.Event) {
+        for effect in engine.handle(event) {
+            switch effect {
+            case .startRun(let id, let brief, let cli, let mode):
+                host.start(id, brief, on: cli, approving: mode) { [weak self] in self?.send(.run(id, $0)) }
+            case .pauseRun(let id):
+                host.stop(id)
+                if let run = engine.state.runs.first {
+                    try? Issue30Probe.render(DockPanel { _ in }.card(for: run), width: 340, to: root.appending(path: "switch.png"))
+                }
+            case .stopRun(let id): host.stop(id)
+            case .resumeRun(let id, let brief, let cli, let mode):
+                host.resume(id, brief, on: cli, approving: mode) { [weak self] in self?.send(.run(id, $0)) }
+            case .saveRunNote(let id, let text): host.saveNote(id, text)
+            case .saveRunReport(let id, let text): host.saveReport(id, text)
+            case .answerApproval(let id, let request, let answer): host.answerApproval(id, request: request, answer)
+            case .answerTool(let call, let answer): host.answerTool(call, answer)
+            case .speak: send(.lineStarted); send(.lineFinished)
+            default: break
+            }
+        }
+    }
+    static let claude = #"""
+    import json, os, pathlib, sys, urllib.request
+    def emit(value):
+        print(json.dumps(value), flush=True)
+    json.loads(sys.stdin.readline())
+    emit({"type":"assistant","message":{"content":[{"type":"tool_use"}]}})
+    emit({"type":"control_request","request_id":"first","request":{"subtype":"can_use_tool","tool_name":"Write","input":{"file_path":"output/actions.txt","content":"first\n"}}})
+    assert json.loads(sys.stdin.readline())["response"]["response"]["behavior"] == "allow"
+    pathlib.Path("output/actions.txt").write_text("first\n")
+    data = json.dumps({"jsonrpc":"2.0","id":50,"method":"tools/call","params":{"name":"update_run_note","arguments":{"note":"# Two lines\n- [x] Wrote first\n- [ ] Verify first exists, then append second once"}}}).encode()
+    request = urllib.request.Request("http://127.0.0.1:" + os.environ["BUDDY_TEST_PORT"] + "/mcp", data=data, headers={"Authorization":"Bearer " + os.environ["BUDDY_TEST_TOKEN"],"Content-Type":"application/json"})
+    with urllib.request.urlopen(request, timeout=5) as response:
+        assert not json.load(response)["result"].get("isError", False)
+    emit({"type":"assistant","message":{"content":[{"type":"text","text":"Wrote exactly first followed by a newline to output/actions.txt. The first action is complete. Only append second followed by a newline; never write first again."}]}})
+    emit({"type":"assistant","error":"rate_limit"})
+    emit({"type":"result","is_error":True,"result":"Simulated usage limit"})
+    """#
+}

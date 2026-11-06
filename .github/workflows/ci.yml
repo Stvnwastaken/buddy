@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build and test
+    runs-on: macos-26
+    timeout-minutes: 15
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.6.app/Contents/Developer
+      # FluidAudio, the only remote package, is cloned and compiled by the app build on every run. Most of the rest of a
+      # cold build is the SDK module caches that both builds otherwise rebuild.
+      BUILD_CACHE_PATHS: |
+        BuddyCore/.build
+        DerivedData/ModuleCache.noindex
+        DerivedData/SDKStatCaches.noindex
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Read the Xcode build
+        id: toolchain
+        run: |
+          xcodebuild -version
+          swift --version
+          echo "xcode-build=$(xcodebuild -version | awk '/Build version/ { print $3 }')" >> "$GITHUB_OUTPUT"
+
+      - name: Restore build caches
+        id: cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ env.BUILD_CACHE_PATHS }}
+          key: build-${{ runner.os }}-${{ steps.toolchain.outputs.xcode-build }}-${{ hashFiles('**/*.swift', '**/*.pbxproj') }}
+          restore-keys: build-${{ runner.os }}-${{ steps.toolchain.outputs.xcode-build }}-
+
+      - name: Test BuddyCore
+        run: swift test --package-path BuddyCore
+
+      - name: Build and test the app
+        if: ${{ !cancelled() }}
+        run: >-
+          xcodebuild -project Buddy.xcodeproj -scheme Buddy -configuration Debug
+          -destination 'platform=macOS,arch=arm64' -derivedDataPath DerivedData
+          CODE_SIGNING_ALLOWED=NO COMPILER_INDEX_STORE_ENABLE=NO test
+
+      # A pull request's cache is visible only to that pull request, so one is saved only when nothing could be restored.
+      - name: Save build caches
+        if: ${{ !cancelled() && steps.cache.outputs.cache-hit != 'true' && (github.ref == 'refs/heads/main' || steps.cache.outputs.cache-matched-key == '') }}
+        uses: actions/cache/save@v6
+        with:
+          path: ${{ env.BUILD_CACHE_PATHS }}
+          key: ${{ steps.cache.outputs.cache-primary-key }}

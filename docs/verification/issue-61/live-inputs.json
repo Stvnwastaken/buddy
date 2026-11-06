@@ -1,0 +1,12 @@
+{
+  "base": "b8aa09f1afacc325b13e5fc7c191af5ab98a88cb",
+  "sourceSHA256": {
+    "BuddyCore/Tests/BuddyCoreTests/UtilityModelTests.swift": "2105491a232c130f521a6117f631574eb551361ec05b23fc23fd94f0c8eecfd8",
+    "BuddyTests/NotchPanelTests.swift": "cf020b260f4d74a0c006a539da4adb96f91ab06904e0bbccc1e436cc6a580f28"
+  },
+  "signedExecutableSHA256": "30b4775b664081ca5bafc1bbd9a75532a14bbd503088562d2d4bdf93f33a6835",
+  "bundleIdentifier": "dev.steven.buddy",
+  "strictCodesignVerified": true,
+  "ownerHistoryUnchanged": true,
+  "normalStartupExercised": false
+}

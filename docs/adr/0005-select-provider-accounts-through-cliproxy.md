@@ -1,0 +1,13 @@
+# Select provider accounts through the owner's CLIProxy hub
+
+Steven requested account and provider switching on 2026-11-01 because the main Claude account had reached its limit, and specified that he uses CLIProxy. This supersedes ADR 0003's decision to bypass the owner's proxy for talk. The app still has one owner and uses subscription sign-ins; it does not introduce Buddy accounts, billing, or provider API keys.
+
+Buddy offers Claude/Codex, account, and model choices using the owner's existing CLIProxy configuration. Automatic delegates account rotation to the hub. A specific account uses a unique account-prefixed model, with no fallback to another account. Selection persists locally; access and management keys are read from the owner's existing files and are not persisted by Buddy.
+
+CLIProxy can translate the existing Claude stream-json transport's Anthropic requests to either provider. A real tiny Codex turn established this before implementation. Reusing that transport preserves the talk instructions, screenshot encoding, tool restrictions, cancellation, and streaming parser without depending on the separate direct-Codex adapter PR. User settings remain disabled in the child; the selected proxy endpoint, access token, and model are supplied explicitly, and a local OAuth token is removed. Direct Claude remains an explicit option.
+
+CLIProxy 8.0.48 exposes accounts and per-account models through its management API. Its public inference routes do not expose the internal account-pin context directly. Buddy therefore reuses unique model prefixes or adds `buddy-<auth_index>` to an account with no prefix. It does this only when `force-model-prefix` is false, preserving the account's unprefixed models. Shared prefixes are rejected. Accounts with existing prefixes are not overwritten. No account is enabled/disabled and no global routing strategy or CLI profile is changed.
+
+Switching cancels the active turn and restarts Buddy's provider process. The next request carries the app's existing recent conversation history, so provider or account switches do not depend on another account's CLI session. If an account disappears or the hub cannot be reached, Buddy reports that condition instead of silently reverting to the local login.
+
+The hub is now part of talk latency and availability, and submitted screenshots pass through it. This is the owner's requested tradeoff. Automatic selection between providers by headroom (issue 11) runs only with direct sign-ins, because only those report the usage it routes by; Automatic in this picker means the selected provider's account rotation on CLIProxy.

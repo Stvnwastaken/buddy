@@ -1,0 +1,30 @@
+{
+  "testedHead": "31da5eef6443837931f3af8001ea01496cb22776",
+  "testedTree": "d125097b996c8c971b1a5e23e4d7eec842bd705f",
+  "base": "c093439ec6849e81f7f59e54c7203cadb010e6d2",
+  "sourceManifestSHA256": "4506e7b33f3e0b9f9f944d4729d891ee15426e050816c68cdf4534cd93895739",
+  "sourceCount": 146,
+  "beforeAfterEqual": true,
+  "products": {
+    "/tmp/buddy-frontier-issue-30/ci/Build/Products/Debug/Buddy.app/Contents/MacOS/Buddy": "806fd4a686c46a039efd8e3d408cb67ddbe4b7d8cf1c215936fd00b666fe20b6",
+    "/tmp/buddy-frontier-issue-30/ci/Build/Products/Debug/Buddy.app/Contents/PlugIns/BuddyTests.xctest/Contents/MacOS/BuddyTests": "906c97daf99c705003f6814c1c34362d09059bebda66ec987c8cac6ee8fc8981",
+    "/tmp/buddy-frontier-issue-30/signed/Build/Products/Debug/Buddy.app/Contents/MacOS/Buddy": "3d367c8c5cff95629791dd546283f9e2181db63866292d949f86844bcb901771",
+    "/tmp/buddy-frontier-issue-30/signed/Build/Products/Debug/Buddy.app/Contents/PlugIns/BuddyTests.xctest/Contents/MacOS/BuddyTests": "0d890d329467ec9672b31694d54837399c673cc6b03a6c8b810b4b5df2d11f00",
+    "/tmp/buddy-frontier-issue-30/core/arm64-apple-macosx/debug/BuddyCorePackageTests.xctest/Contents/MacOS/BuddyCorePackageTests": "8a8155e19983461478fc05494f13e8f3fe50adb7420d5c533c298fe6bb202662"
+  },
+  "probeSHA256": "096ef15ff9deb33d35d339016584ec345d80bdfa004ccd387981ff3033e3b2a4",
+  "batches": [
+    {
+      "name": "core",
+      "sourceUnchanged": true
+    },
+    {
+      "name": "unsigned",
+      "sourceUnchanged": true
+    },
+    {
+      "name": "signed",
+      "sourceUnchanged": true
+    }
+  ]
+}
